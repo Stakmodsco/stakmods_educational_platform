@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Stakmods Educational Platform</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fkatoeduca2528back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-gradient-to-br from-primary-50 via-white to-secondary-50 min-h-screen">
+    <!-- Header Section -->
+    <header class="bg-white shadow-subtle border-b border-border-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-10 w-10 text-primary" viewBox="0 0 40 40" fill="currentColor">
+                            <path d="M20 2L4 8v12c0 11 7.6 21.3 16 24 8.4-2.7 16-13 16-24V8L20 2zm0 6l12 4.5v9.5c0 8.8-6.1 17.1-12 19.4C14.1 39.1 8 30.8 8 22v-9.5L20 8z"/>
+                            <path d="M15 18l3 3 7-7-2-2-5 5-1-1-2 2z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-heading font-bold text-primary">Stakmods Educational Platform</h1>
+                        <p class="text-sm text-secondary-600">Theological Excellence</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="student_dashboard.html" class="nav-link text-body-md">Dashboard</a>
+                    <a href="course_content_viewer.html" class="nav-link text-body-md">Courses</a>
+                    <a href="assessment_center.html" class="nav-link text-body-md">Assessments</a>
+                    <a href="live_session_classroom.html" class="nav-link text-body-md">Live Sessions</a>
+                    <a href="progress_analytics.html" class="nav-link text-body-md">Analytics</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
+        <div class="max-w-md w-full space-y-8">
+            <!-- Login Form Container -->
+            <div class="card-elevated p-8 bg-white">
+                <!-- Form Header -->
+                <div class="text-center mb-8">
+                    <div class="mx-auto h-16 w-16 bg-primary-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <h2 class="text-heading-lg text-text-primary font-heading">Sign in to your account</h2>
+                    <p class="mt-2 text-body-sm text-text-secondary">Access your theological education platform</p>
+                </div>
+
+                <!-- Login Form -->
+                <form class="space-y-6" id="loginForm">
+                    <!-- User Type Selection -->
+                    <div>
+                        <label class="form-label">Account Type</label>
+                        <select class="form-input" id="userType" required>
+                            <option value>Select your role</option>
+                            <option value="student">Student</option>
+                            <option value="instructor">Instructor</option>
+                            <option value="administrator">Administrator</option>
+                        </select>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="form-label">Email address</label>
+                        <div class="relative">
+                            <input id="email" name="email" type="email" autocomplete="email" required class="form-input pl-10" placeholder="Enter your email address" />
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label for="password" class="form-label">Password</label>
+                        <div class="relative">
+                            <input id="password" name="password" type="password" autocomplete="current-password" required class="form-input pl-10 pr-10" placeholder="Enter your password" />
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                </svg>
+                            </div>
+                            <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" onclick="togglePassword()">
+                                <svg id="eyeIcon" class="h-5 w-5 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me & Forgot Password -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-primary focus:ring-primary-500 border-border-light rounded" />
+                            <label for="remember-me" class="ml-2 block text-body-sm text-text-secondary">
+                                Remember me
+                            </label>
+                        </div>
+                        <div class="text-body-sm">
+                            <a href="javascript:void(0)" class="font-medium text-primary hover:text-primary-700 transition-colors duration-fast">
+                                Forgot your password?
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="errorMessage" class="hidden status-error rounded-md p-3">
+                        <div class="flex">
+                            <svg class="h-5 w-5 text-error-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span id="errorText" class="text-body-sm"></span>
+                        </div>
+                    </div>
+
+                    <!-- Sign In Button -->
+                    <div>
+                        <button type="submit" class="w-full btn-primary py-3 text-body-md font-medium" id="signInBtn">
+                            <span id="signInText">Sign in</span>
+                            <svg id="loadingSpinner" class="hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Create Account Link -->
+                    <div class="text-center">
+                        <p class="text-body-sm text-text-secondary">
+                            Don't have an account?
+                            <a href="javascript:void(0)" class="font-medium text-primary hover:text-primary-700 transition-colors duration-fast">
+                                Create Account
+                            </a>
+                        </p>
+                    </div>
+                </form>
+
+                <!-- Demo Credentials -->
+                <div class="mt-8 p-4 bg-secondary-50 rounded-lg border border-secondary-200">
+                    <h3 class="text-body-sm font-medium text-text-primary mb-2">Demo Credentials:</h3>
+                    <div class="space-y-1 text-caption-sm text-text-secondary">
+                        <p><strong>Student:</strong> student@stakmods.edu / student123</p>
+                        <p><strong>Instructor:</strong> instructor@stakmods.edu / instructor123</p>
+                        <p><strong>Admin:</strong> admin@stakmods.edu / admin123</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Signals -->
+            <div class="text-center space-y-4">
+                <!-- SSL Certificate -->
+                <div class="flex items-center justify-center space-x-2 text-success-600">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                    </svg>
+                    <span class="text-body-sm font-medium">SSL Secured Connection</span>
+                </div>
+
+                <!-- Accreditation Badges -->
+                <div class="flex items-center justify-center space-x-6">
+                    <div class="flex items-center space-x-2">
+                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=126&h=80&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Theological Accreditation" class="h-8 w-12 object-contain" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <span class="text-caption-sm text-text-secondary">Accredited</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <svg class="h-6 w-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <span class="text-caption-sm text-text-secondary">Excellence Award</span>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <p class="text-caption-sm text-text-secondary">
+                    © 2025 Stakmods Theological Institute. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Background Pattern -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <svg class="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-secondary-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]" aria-hidden="true">
+            <defs>
+                <pattern id="e813992c-7d03-4cc4-a2bd-151760b470a0" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
+                    <path d="M100 200V.5M.5 .5H200" fill="none"/>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" stroke-width="0" fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)"/>
+        </svg>
+    </div>
+
+    <script>
+    // Toggle password visibility
+    function togglePassword() {
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = document.getElementById('eyeIcon');
+        
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.innerHTML = `
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"/>
+            `;
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.innerHTML = `
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            `;
+        }
+    }
+
+    // Handle form submission
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const userType = document.getElementById('userType').value;
+        const signInBtn = document.getElementById('signInBtn');
+        const signInText = document.getElementById('signInText');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const errorMessage = document.getElementById('errorMessage');
+        const errorText = document.getElementById('errorText');
+
+        // Show loading state
+        signInBtn.disabled = true;
+        signInText.textContent = 'Signing in...';
+        loadingSpinner.classList.remove('hidden');
+        errorMessage.classList.add('hidden');
+
+        // Simulate authentication delay
+        setTimeout(() => {
+            // Mock authentication logic
+            const validCredentials = {
+                'student@stakmods.edu': { password: 'student123', type: 'student', redirect: 'student_dashboard.html' },
+                'instructor@stakmods.edu': { password: 'instructor123', type: 'instructor', redirect: 'student_dashboard.html' },
+                'admin@stakmods.edu': { password: 'admin123', type: 'administrator', redirect: 'student_dashboard.html' }
+            };
+
+            const user = validCredentials[email];
+            
+            if (user && user.password === password && user.type === userType) {
+                // Successful login
+                signInText.textContent = 'Success! Redirecting...';
+                setTimeout(() => {
+                    window.location.href = user.redirect;
+                }, 1000);
+            } else {
+                // Failed login
+                signInBtn.disabled = false;
+                signInText.textContent = 'Sign in';
+                loadingSpinner.classList.add('hidden');
+                errorMessage.classList.remove('hidden');
+                
+                if (!user) {
+                    errorText.textContent = 'Invalid email address. Please check your credentials.';
+                } else if (user.password !== password) {
+                    errorText.textContent = 'Incorrect password. Please try again.';
+                } else if (user.type !== userType) {
+                    errorText.textContent = 'Account type mismatch. Please select the correct role.';
+                }
+            }
+        }, 1500);
+    });
+
+    // Auto-fill demo credentials
+    document.addEventListener('DOMContentLoaded', function() {
+        const userTypeSelect = document.getElementById('userType');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+
+        userTypeSelect.addEventListener('change', function() {
+            const selectedType = this.value;
+            if (selectedType === 'student') {
+                emailInput.value = 'student@stakmods.edu';
+                passwordInput.value = 'student123';
+            } else if (selectedType === 'instructor') {
+                emailInput.value = 'instructor@stakmods.edu';
+                passwordInput.value = 'instructor123';
+            } else if (selectedType === 'administrator') {
+                emailInput.value = 'admin@stakmods.edu';
+                passwordInput.value = 'admin123';
+            } else {
+                emailInput.value = '';
+                passwordInput.value = '';
+            }
+        });
+    });
+</script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

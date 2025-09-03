@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Content Viewer - Stakmods Educational Platform</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fkatoeduca2528back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-surface min-h-screen">
+    <!-- Header Section -->
+    <header class="bg-white shadow-subtle border-b border-border-light sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-10 w-10 text-primary" viewBox="0 0 40 40" fill="currentColor">
+                            <path d="M20 2L4 8v12c0 11 7.6 21.3 16 24 8.4-2.7 16-13 16-24V8L20 2zm0 6l12 4.5v9.5c0 8.8-6.1 17.1-12 19.4C14.1 39.1 8 30.8 8 22v-9.5L20 8z"/>
+                            <path d="M15 18l3 3 7-7-2-2-5 5-1-1-2 2z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-heading font-bold text-primary">Stakmods Educational Platform</h1>
+                        <p class="text-sm text-secondary-600">Theological Excellence</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="student_dashboard.html" class="nav-link text-body-md">Dashboard</a>
+                    <a href="course_content_viewer.html" class="nav-link-active text-body-md">Courses</a>
+                    <a href="assessment_center.html" class="nav-link text-body-md">Assessments</a>
+                    <a href="live_session_classroom.html" class="nav-link text-body-md">Live Sessions</a>
+                    <a href="progress_analytics.html" class="nav-link text-body-md">Analytics</a>
+                </nav>
+
+                <!-- User Menu -->
+                <div class="flex items-center space-x-4">
+                    <!-- Offline Status Indicator -->
+                    <div class="flex items-center space-x-2">
+                        <div id="connectionStatus" class="flex items-center space-x-1">
+                            <div class="w-2 h-2 bg-success rounded-full"></div>
+                            <span class="text-caption-sm text-text-secondary">Online</span>
+                        </div>
+                    </div>
+                    
+                    <!-- User Avatar -->
+                    <div class="relative">
+                        <button class="flex items-center space-x-2 text-text-secondary hover:text-primary transition-colors duration-fast">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Student Avatar" class="w-8 h-8 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                            <span class="text-body-sm font-medium">John Doe</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <div class="flex h-screen pt-16">
+        <!-- Course Sidebar -->
+        <aside class="w-80 bg-white border-r border-border-light overflow-y-auto" id="courseSidebar">
+            <!-- Course Header -->
+            <div class="p-6 border-b border-border-light">
+                <div class="flex items-start space-x-3">
+                    <img src="https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&dpr=2" alt="Course Thumbnail" class="w-12 h-12 rounded-lg object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                    <div class="flex-1">
+                        <h2 class="text-heading-sm text-text-primary font-heading">Biblical Hermeneutics</h2>
+                        <p class="text-caption-sm text-text-secondary">Term 1 • 12 Weeks</p>
+                        <div class="mt-2">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%"></div>
+                            </div>
+                            <p class="text-caption-sm text-text-secondary mt-1">45% Complete</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Outline -->
+            <div class="p-4">
+                <h3 class="text-body-sm font-medium text-text-primary mb-4">Course Outline</h3>
+                
+                <!-- Week 1 - Completed -->
+                <div class="mb-4">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="text-body-sm font-medium text-text-primary">Week 1: Introduction</h4>
+                        <svg class="w-5 h-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div class="space-y-2 ml-4">
+                        <div class="flex items-center space-x-2 text-success">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 6a2 2 0 012-2h6l2 2h6a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/>
+                            </svg>
+                            <span class="text-caption-sm">1.1 What is Hermeneutics?</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-success">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V4a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="text-caption-sm">1.2 Historical Context</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-success">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-caption-sm">Quiz: Introduction</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 2 - Current -->
+                <div class="mb-4 bg-primary-50 rounded-lg p-3 border-l-4 border-primary">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="text-body-sm font-medium text-primary">Week 2: Principles of Interpretation</h4>
+                        <div class="w-5 h-5 bg-primary rounded-full flex items-center justify-center">
+                            <span class="text-white text-caption-sm font-bold">2</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2 ml-4">
+                        <div class="flex items-center space-x-2 text-primary cursor-pointer hover:text-primary-700" onclick="loadContent('video', '2.1')">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V4a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="text-caption-sm font-medium">2.1 Literal vs Figurative</span>
+                            <div class="w-2 h-2 bg-accent rounded-full"></div>
+                        </div>
+                        <div class="flex items-center space-x-2 text-text-secondary">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-caption-sm">2.2 Cultural Context</span>
+                            <svg class="w-4 h-4 text-secondary-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div class="flex items-center space-x-2 text-text-secondary">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 6a2 2 0 012-2h6l2 2h6a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/>
+                            </svg>
+                            <span class="text-caption-sm">2.3 Reading: Principles</span>
+                            <svg class="w-4 h-4 text-secondary-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 3 - Locked -->
+                <div class="mb-4 opacity-60">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="text-body-sm font-medium text-text-secondary">Week 3: Exegetical Methods</h4>
+                        <svg class="w-5 h-5 text-secondary-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div class="space-y-2 ml-4">
+                        <div class="flex items-center space-x-2 text-text-secondary">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V4a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="text-caption-sm">3.1 Grammatical Analysis</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-text-secondary">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 6a2 2 0 012-2h6l2 2h6a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/>
+                            </svg>
+                            <span class="text-caption-sm">3.2 Syntactical Study</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More weeks... -->
+                <div class="text-center py-4">
+                    <button class="text-caption-sm text-primary hover:text-primary-700 font-medium">
+                        View All Weeks (12)
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <!-- Content Header -->
+            <div class="bg-white border-b border-border-light p-6">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <button onclick="toggleSidebar()" class="md:hidden p-2 rounded-md hover:bg-secondary-100">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                        </button>
+                        <div>
+                            <h1 class="text-heading-md text-text-primary font-heading">2.1 Literal vs Figurative Interpretation</h1>
+                            <div class="flex items-center space-x-4 mt-1">
+                                <span class="text-caption-sm text-text-secondary">Video • 24 minutes</span>
+                                <div class="flex items-center space-x-1">
+                                    <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                    </svg>
+                                    <span class="text-caption-sm text-success">Cached for offline</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Content Controls -->
+                    <div class="flex items-center space-x-3">
+                        <button class="p-2 rounded-md hover:bg-secondary-100 text-text-secondary hover:text-primary" title="Take Notes">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                            </svg>
+                        </button>
+                        <button class="p-2 rounded-md hover:bg-secondary-100 text-text-secondary hover:text-primary" title="Bookmark">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                            </svg>
+                        </button>
+                        <button class="p-2 rounded-md hover:bg-secondary-100 text-text-secondary hover:text-primary" title="Download">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Player Container -->
+            <div class="flex-1 bg-black relative" id="contentContainer">
+                <!-- Video Player -->
+                <div class="w-full h-full relative" id="videoPlayer">
+                    <video class="w-full h-full object-contain" controls poster="https://images.pixabay.com/photos/2159/bible-study-christian-education.jpg?auto=compress&cs=tinysrgb&w=1200&h=675&dpr=2" id="mainVideo">
+                        <source src="#" type="video/mp4" />
+                        <track kind="subtitles" src="#" srclang="en" label="English" default />
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <!-- Custom Video Controls Overlay -->
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4" id="videoControls">
+                        <div class="flex items-center space-x-4">
+                            <!-- Play/Pause -->
+                            <button class="text-white hover:text-primary-300" onclick="togglePlay()">
+                                <svg id="playIcon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
+                                </svg>
+                            </button>
+
+                            <!-- Progress Bar -->
+                            <div class="flex-1">
+                                <div class="bg-white/30 rounded-full h-1 relative">
+                                    <div class="bg-primary h-1 rounded-full" style="width: 35%" id="progressBar"></div>
+                                    <div class="absolute top-0 left-0 w-full h-1 cursor-pointer" onclick="seekVideo(event)"></div>
+                                </div>
+                                <div class="flex justify-between text-white text-caption-sm mt-1">
+                                    <span id="currentTime">8:24</span>
+                                    <span id="duration">24:00</span>
+                                </div>
+                            </div>
+
+                            <!-- Speed Control -->
+                            <div class="relative">
+                                <button class="text-white hover:text-primary-300 text-caption-sm font-medium" onclick="toggleSpeedMenu()">
+                                    1.0x
+                                </button>
+                                <div id="speedMenu" class="hidden absolute bottom-full right-0 mb-2 bg-white rounded-lg shadow-elevated border border-border-light py-2">
+                                    <button class="block w-full px-4 py-1 text-left hover:bg-secondary-50 text-body-sm" onclick="setSpeed(0.5)">0.5x</button>
+                                    <button class="block w-full px-4 py-1 text-left hover:bg-secondary-50 text-body-sm" onclick="setSpeed(0.75)">0.75x</button>
+                                    <button class="block w-full px-4 py-1 text-left hover:bg-secondary-50 text-body-sm font-medium bg-primary-50" onclick="setSpeed(1)">1.0x</button>
+                                    <button class="block w-full px-4 py-1 text-left hover:bg-secondary-50 text-body-sm" onclick="setSpeed(1.25)">1.25x</button>
+                                    <button class="block w-full px-4 py-1 text-left hover:bg-secondary-50 text-body-sm" onclick="setSpeed(1.5)">1.5x</button>
+                                    <button class="block w-full px-4 py-1 text-left hover:bg-secondary-50 text-body-sm" onclick="setSpeed(2)">2.0x</button>
+                                </div>
+                            </div>
+
+                            <!-- Quality Control -->
+                            <div class="relative">
+                                <button class="text-white hover:text-primary-300 text-caption-sm font-medium" onclick="toggleQualityMenu()">
+                                    720p
+                                </button>
+                                <div id="qualityMenu" class="hidden absolute bottom-full right-0 mb-2 bg-white rounded-lg shadow-elevated border border-border-light py-2">
+                                    <button class="block w-full px-4 py-1 text-left hover:bg-secondary-50 text-body-sm" onclick="setQuality('360p')">360p</button>
+                                    <button class="block w-full px-4 py-1 text-left hover:bg-secondary-50 text-body-sm" onclick="setQuality('480p')">480p</button>
+                                    <button class="block w-full px-4 py-1 text-left hover:bg-secondary-50 text-body-sm font-medium bg-primary-50" onclick="setQuality('720p')">720p</button>
+                                    <button class="block w-full px-4 py-1 text-left hover:bg-secondary-50 text-body-sm" onclick="setQuality('1080p')">1080p</button>
+                                </div>
+                            </div>
+
+                            <!-- Subtitles -->
+                            <button class="text-white hover:text-primary-300" onclick="toggleSubtitles()" title="Toggle Subtitles">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V1a1 1 0 011-1h2a1 1 0 011 1v18a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1h2z"/>
+                                </svg>
+                            </button>
+
+                            <!-- Fullscreen -->
+                            <button class="text-white hover:text-primary-300" onclick="toggleFullscreen()" title="Fullscreen">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- AI Subtitles Display -->
+                    <div class="absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-black/80 text-white px-4 py-2 rounded-lg text-center max-w-2xl" id="subtitles">
+                        <p class="text-body-sm">Understanding the difference between literal and figurative language is crucial for proper biblical interpretation.</p>
+                    </div>
+                </div>
+
+                <!-- eBook Reader (Hidden by default) -->
+                <div class="hidden w-full h-full bg-white" id="ebookReader">
+                    <div class="max-w-4xl mx-auto h-full flex flex-col">
+                        <!-- eBook Header -->
+                        <div class="border-b border-border-light p-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h2 class="text-heading-sm font-heading">Principles of Biblical Interpretation</h2>
+                                    <p class="text-caption-sm text-text-secondary">Chapter 2: Literal vs Figurative</p>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <!-- Text Size Controls -->
+                                    <div class="flex items-center space-x-1">
+                                        <button onclick="decreaseTextSize()" class="p-1 rounded hover:bg-secondary-100">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/>
+                                            </svg>
+                                        </button>
+                                        <span class="text-caption-sm px-2">A</span>
+                                        <button onclick="increaseTextSize()" class="p-1 rounded hover:bg-secondary-100">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    
+                                    <!-- Text-to-Speech -->
+                                    <button onclick="toggleTextToSpeech()" class="p-2 rounded-md hover:bg-secondary-100 text-text-secondary hover:text-primary" title="Text-to-Speech">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.142M5 7h4l5-5v20l-5-5H5a2 2 0 01-2-2V9a2 2 0 012-2z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- eBook Content -->
+                        <div class="flex-1 overflow-y-auto p-8" id="ebookContent">
+                            <div class="prose prose-lg max-w-none">
+                                <h1>Literal vs Figurative Interpretation</h1>
+                                
+                                <p class="lead">One of the fundamental principles in biblical hermeneutics is understanding when to interpret text literally and when to recognize figurative language. This distinction is crucial for accurate biblical interpretation and avoiding common interpretive errors.</p>
+
+                                <h2>Understanding Literal Interpretation</h2>
+                                
+                                <p>Literal interpretation, also known as the grammatical-historical method, seeks to understand the text according to its natural, ordinary meaning within its historical and cultural context. This approach considers:</p>
+
+                                <ul>
+                                    <li><strong>Grammar:</strong> The rules and structure of the original language</li>
+                                    <li><strong>Syntax:</strong> How words relate to each other in sentences</li>
+                                    <li><strong>Historical Context:</strong> The circumstances surrounding the text's composition</li>
+                                    <li><strong>Cultural Background:</strong> The customs and practices of the original audience</li>
+                                </ul>
+
+                                <blockquote>
+                                    <p>"When the plain sense of Scripture makes common sense, seek no other sense; therefore, take every word at its primary, ordinary, usual, literal meaning unless the facts of the immediate context, studied in the light of related passages and axiomatic and fundamental truths, indicate clearly otherwise." - Dr. David L. Cooper</p>
+                                </blockquote>
+
+                                <h2>Recognizing Figurative Language</h2>
+
+                                <p>The Bible contains various forms of figurative language that require careful interpretation. These include:</p>
+
+                                <h3>Metaphors and Similes</h3>
+                                <p>Jesus frequently used metaphorical language in His teachings. When He said, "I am the door" (John 10:9), He was not claiming to be a literal wooden door, but rather using metaphor to describe His role as the way to salvation.</p>
+
+                                <h3>Parables</h3>
+                                <p>Parables are extended metaphors that teach spiritual truths through earthly stories. The parable of the sower (Matthew 13:3-23) uses agricultural imagery to teach about different responses to God's word.</p>
+
+                                <h3>Apocalyptic Literature</h3>
+                                <p>Books like Daniel and Revelation contain highly symbolic language that requires careful study of their historical and literary context for proper interpretation.</p>
+
+                                <div class="bg-primary-50 border-l-4 border-primary p-4 my-6">
+                                    <h4 class="text-primary font-semibold mb-2">Key Principle</h4>
+                                    <p class="mb-0">The goal is not to choose between literal and figurative interpretation, but to discern which approach the text itself demands based on its genre, context, and literary features.</p>
+                                </div>
+
+                                <h2>Practical Guidelines</h2>
+
+                                <p>When approaching a biblical text, consider these guidelines:</p>
+
+                                <ol>
+                                    <li><strong>Start with the literal:</strong> Begin with the assumption that the text means what it says unless there are clear indicators otherwise.</li>
+                                    <li><strong>Consider the genre:</strong> Poetry, prophecy, and parables often employ figurative language more than historical narrative.</li>
+                                    <li><strong>Look for textual clues:</strong> Words like "like," "as," or "is like" often signal figurative language.</li>
+                                    <li><strong>Examine the context:</strong> The surrounding verses and chapters provide crucial interpretive clues.</li>
+                                    <li><strong>Compare Scripture with Scripture:</strong> Let clearer passages illuminate more difficult ones.</li>
+                                </ol>
+
+                                <h2>Common Interpretive Errors</h2>
+
+                                <p>Avoiding these common mistakes will improve your interpretive accuracy:</p>
+
+                                <ul>
+                                    <li><strong>Excessive literalism:</strong> Insisting on literal interpretation when the text clearly employs figurative language</li>
+                                    <li><strong>Excessive spiritualization:</strong> Finding hidden meanings where the text intends literal understanding</li>
+                                    <li><strong>Ignoring genre:</strong> Applying the same interpretive approach to all biblical literature regardless of its type</li>
+                                    <li><strong>Cultural anachronism:</strong> Reading modern concepts into ancient texts</li>
+                                </ul>
+
+                                <div class="bg-accent-50 border border-accent-200 rounded-lg p-4 my-6">
+                                    <h4 class="text-accent-800 font-semibold mb-2">Reflection Questions</h4>
+                                    <ul class="mb-0 text-accent-700">
+                                        <li>How does understanding the original audience help in interpretation?</li>
+                                        <li>What role does the Holy Spirit play in biblical interpretation?</li>
+                                        <li>How can we balance scholarly study with devotional reading?</li>
+                                    </ul>
+                                </div>
+
+                                <h2>Conclusion</h2>
+
+                                <p>Mastering the balance between literal and figurative interpretation is essential for faithful biblical study. This skill develops through careful study, prayer, and practice. Remember that the goal is not merely academic understanding, but transformation through God's Word.</p>
+
+                                <p>In our next lesson, we will explore how cultural context influences interpretation and examine specific examples from both Old and New Testament passages.</p>
+                            </div>
+                        </div>
+
+                        <!-- eBook Navigation -->
+                        <div class="border-t border-border-light p-4">
+                            <div class="flex items-center justify-between">
+                                <button class="flex items-center space-x-2 text-text-secondary hover:text-primary">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                                    </svg>
+                                    <span class="text-body-sm">Previous Chapter</span>
+                                </button>
+                                
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-caption-sm text-text-secondary">Page 1 of 1</span>
+                                    <div class="progress-bar w-32">
+                                        <div class="progress-fill" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                
+                                <button class="flex items-center space-x-2 text-text-secondary hover:text-primary">
+                                    <span class="text-body-sm">Next Chapter</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="bg-white border-t border-border-light p-4">
+                <div class="flex items-center justify-between">
+                    <button class="flex items-center space-x-2 text-text-secondary hover:text-primary transition-colors duration-fast">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                        <span class="text-body-sm font-medium">Previous: Introduction</span>
+                    </button>
+
+                    <div class="flex items-center space-x-4">
+                        <!-- Progress Indicator -->
+                        <div class="flex items-center space-x-2">
+                            <span class="text-caption-sm text-text-secondary">Progress:</span>
+                            <div class="progress-bar w-24">
+                                <div class="progress-fill" style="width: 35%"></div>
+                            </div>
+                            <span class="text-caption-sm text-text-secondary">35%</span>
+                        </div>
+
+                        <!-- Estimated Time -->
+                        <div class="flex items-center space-x-1 text-text-secondary">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-caption-sm">16 min remaining</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary flex items-center space-x-2" onclick="proceedToNext()">
+                        <span class="text-body-sm font-medium">Next: Cultural Context</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Embedded Quiz Modal -->
+    <div id="quizModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-elevated max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b border-border-light">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-heading-md font-heading">Knowledge Check</h3>
+                    <button onclick="closeQuiz()" class="text-text-secondary hover:text-text-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-6">
+                <div class="mb-6">
+                    <h4 class="text-body-lg font-medium mb-4">Which of the following is an example of figurative language in the Bible?</h4>
+                    <div class="space-y-3">
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="quiz1" value="a" class="mt-1" />
+                            <span class="text-body-md">Jesus was born in Bethlehem</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="quiz1" value="b" class="mt-1" />
+                            <span class="text-body-md">"I am the door" (John 10:9)</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="quiz1" value="c" class="mt-1" />
+                            <span class="text-body-md">Paul traveled to Rome</span>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input type="radio" name="quiz1" value="d" class="mt-1" />
+                            <span class="text-body-md">Moses received the Ten Commandments</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="flex justify-between">
+                    <button onclick="closeQuiz()" class="btn-secondary">Skip for Now</button>
+                    <button onclick="submitQuiz()" class="btn-primary">Submit Answer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notes Panel (Slide-out) -->
+    <div id="notesPanel" class="hidden fixed right-0 top-16 bottom-0 w-80 bg-white border-l border-border-light shadow-elevated z-40 transform translate-x-full transition-transform duration-medium">
+        <div class="h-full flex flex-col">
+            <div class="p-4 border-b border-border-light">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-heading-sm font-heading">My Notes</h3>
+                    <button onclick="closeNotes()" class="text-text-secondary hover:text-text-primary">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="flex-1 p-4">
+                <textarea class="w-full h-full resize-none border border-border-light rounded-md p-3 text-body-sm" placeholder="Take notes while watching the video or reading..." id="notesTextarea"></textarea>
+            </div>
+            
+            <div class="p-4 border-t border-border-light">
+                <button class="w-full btn-primary text-body-sm">Save Notes</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentContentType = 'video';
+        let isPlaying = false;
+        let currentSpeed = 1.0;
+        let currentQuality = '720p';
+        let subtitlesEnabled = true;
+        let sidebarVisible = true;
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simulate loading video content
+            setTimeout(() => {
+                document.getElementById('mainVideo').src = 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4';
+            }, 1000);
+
+            // Check connection status
+            updateConnectionStatus();
+            window.addEventListener('online', updateConnectionStatus);
+            window.addEventListener('offline', updateConnectionStatus);
+
+            // Auto-show quiz after video progress
+            setTimeout(() => {
+                if (Math.random() > 0.7) { // 30% chance to show quiz
+                    showQuiz();
+                }
+            }, 15000);
+        });
+
+        // Connection status
+        function updateConnectionStatus() {
+            const statusElement = document.getElementById('connectionStatus');
+            if (navigator.onLine) {
+                statusElement.innerHTML = `
+                    <div class="w-2 h-2 bg-success rounded-full"></div>
+                    <span class="text-caption-sm text-text-secondary">Online</span>
+                `;
+            } else {
+                statusElement.innerHTML = `
+                    <div class="w-2 h-2 bg-warning rounded-full"></div>
+                    <span class="text-caption-sm text-text-secondary">Offline</span>
+                `;
+            }
+        }
+
+        // Sidebar toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById('courseSidebar');
+            sidebarVisible = !sidebarVisible;
+            
+            if (sidebarVisible) {
+                sidebar.classList.remove('-translate-x-full');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+            }
+        }
+
+        // Content loading
+        function loadContent(type, contentId) {
+            const videoPlayer = document.getElementById('videoPlayer');
+            const ebookReader = document.getElementById('ebookReader');
+            
+            currentContentType = type;
+            
+            if (type === 'video') {
+                videoPlayer.classList.remove('hidden');
+                ebookReader.classList.add('hidden');
+                
+                // Update header
+                document.querySelector('main h1').textContent = `${contentId} Literal vs Figurative Interpretation`;
+                document.querySelector('main .text-caption-sm').textContent = 'Video • 24 minutes';
+            } else if (type === 'ebook') {
+                videoPlayer.classList.add('hidden');
+                ebookReader.classList.remove('hidden');
+                
+                // Update header
+                document.querySelector('main h1').textContent = `${contentId} Principles of Biblical Interpretation`;
+                document.querySelector('main .text-caption-sm').textContent = 'Reading • 15 minutes';
+            }
+            
+            // Update progress
+            updateProgress();
+        }
+
+        // Video controls
+        function togglePlay() {
+            const video = document.getElementById('mainVideo');
+            const playIcon = document.getElementById('playIcon');
+            
+            if (isPlaying) {
+                video.pause();
+                playIcon.innerHTML = `<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>`;
+            } else {
+                video.play();
+                playIcon.innerHTML = `<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 002 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>`;
+            }
+            isPlaying = !isPlaying;
+        }
+
+        function seekVideo(event) {
+            const progressContainer = event.currentTarget;
+            const rect = progressContainer.getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const percentage = clickX / rect.width;
+            
+            // Update progress bar
+            document.getElementById('progressBar').style.width = `${percentage * 100}%`;
+            
+            // Update time display
+            const totalSeconds = 24 * 60; // 24 minutes
+            const currentSeconds = Math.floor(totalSeconds * percentage);
+            const minutes = Math.floor(currentSeconds / 60);
+            const seconds = currentSeconds % 60;
+            document.getElementById('currentTime').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function toggleSpeedMenu() {
+            const menu = document.getElementById('speedMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function setSpeed(speed) {
+            currentSpeed = speed;
+            document.querySelector('[onclick="toggleSpeedMenu()"]').textContent = `${speed}x`;
+            document.getElementById('speedMenu').classList.add('hidden');
+            
+            // Apply to video
+            const video = document.getElementById('mainVideo');
+            video.playbackRate = speed;
+        }
+
+        function toggleQualityMenu() {
+            const menu = document.getElementById('qualityMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function setQuality(quality) {
+            currentQuality = quality;
+            document.querySelector('[onclick="toggleQualityMenu()"]').textContent = quality;
+            document.getElementById('qualityMenu').classList.add('hidden');
+            
+            // In a real implementation, this would switch video sources
+            console.log(`Quality changed to ${quality}`);
+        }
+
+        function toggleSubtitles() {
+            subtitlesEnabled = !subtitlesEnabled;
+            const subtitles = document.getElementById('subtitles');
+            
+            if (subtitlesEnabled) {
+                subtitles.classList.remove('hidden');
+            } else {
+                subtitles.classList.add('hidden');
+            }
+        }
+
+        function toggleFullscreen() {
+            const videoContainer = document.getElementById('videoPlayer');
+            
+            if (!document.fullscreenElement) {
+                videoContainer.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // eBook controls
+        function decreaseTextSize() {
+            const content = document.getElementById('ebookContent');
+            const currentSize = parseFloat(window.getComputedStyle(content).fontSize);
+            content.style.fontSize = `${Math.max(currentSize - 2, 12)}px`;
+        }
+
+        function increaseTextSize() {
+            const content = document.getElementById('ebookContent');
+            const currentSize = parseFloat(window.getComputedStyle(content).fontSize);
+            content.style.fontSize = `${Math.min(currentSize + 2, 24)}px`;
+        }
+
+        function toggleTextToSpeech() {
+            // In a real implementation, this would use the Web Speech API
+            if ('speechSynthesis' in window) {
+                const text = document.getElementById('ebookContent').textContent;
+                const utterance = new SpeechSynthesisUtterance(text);
+                speechSynthesis.speak(utterance);
+            } else {
+                alert('Text-to-speech is not supported in your browser.');
+            }
+        }
+
+        // Quiz functionality
+        function showQuiz() {
+            document.getElementById('quizModal').classList.remove('hidden');
+        }
+
+        function closeQuiz() {
+            document.getElementById('quizModal').classList.add('hidden');
+        }
+
+        function submitQuiz() {
+            const selectedAnswer = document.querySelector('input[name="quiz1"]:checked');
+            if (!selectedAnswer) {
+                alert('Please select an answer.');
+                return;
+            }
+            
+            if (selectedAnswer.value === 'b') {
+                alert('Correct! "I am the door" is a metaphor used by Jesus.');
+            } else {
+                alert('Incorrect. The correct answer is "I am the door" - this is figurative language (metaphor).');
+            }
+            
+            closeQuiz();
+            updateProgress();
+        }
+
+        // Notes functionality
+        function openNotes() {
+            const panel = document.getElementById('notesPanel');
+            panel.classList.remove('hidden');
+            setTimeout(() => {
+                panel.classList.remove('translate-x-full');
+            }, 10);
+        }
+
+        function closeNotes() {
+            const panel = document.getElementById('notesPanel');
+            panel.classList.add('translate-x-full');
+            setTimeout(() => {
+                panel.classList.add('hidden');
+            }, 300);
+        }
+
+        // Progress tracking
+        function updateProgress() {
+            // Simulate progress update
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const currentWidth = parseInt(bar.style.width) || 35;
+                bar.style.width = `${Math.min(currentWidth + 5, 100)}%`;
+            });
+        }
+
+        function proceedToNext() {
+            // Simulate navigation to next content
+            alert('Proceeding to next lesson: Cultural Context');
+            updateProgress();
+        }
+
+        // Click outside to close menus
+        document.addEventListener('click', function(event) {
+            const speedMenu = document.getElementById('speedMenu');
+            const qualityMenu = document.getElementById('qualityMenu');
+            
+            if (!event.target.closest('[onclick="toggleSpeedMenu()"]') && !speedMenu.contains(event.target)) {
+                speedMenu.classList.add('hidden');
+            }
+            
+            if (!event.target.closest('[onclick="toggleQualityMenu()"]') && !qualityMenu.contains(event.target)) {
+                qualityMenu.classList.add('hidden');
+            }
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') return;
+            
+            switch(event.code) {
+                case 'Space':
+                    event.preventDefault();
+                    togglePlay();
+                    break;
+                case 'KeyF':
+                    event.preventDefault();
+                    toggleFullscreen();
+                    break;
+                case 'KeyS':
+                    event.preventDefault();
+                    toggleSubtitles();
+                    break;
+                case 'KeyN':
+                    event.preventDefault();
+                    openNotes();
+                    break;
+            }
+        });
+
+        // Auto-save notes
+        document.getElementById('notesTextarea')?.addEventListener('input', function() {
+            localStorage.setItem('courseNotes', this.value);
+        });
+
+        // Load saved notes
+        const savedNotes = localStorage.getItem('courseNotes');
+        if (savedNotes) {
+            document.getElementById('notesTextarea').value = savedNotes;
+        }
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

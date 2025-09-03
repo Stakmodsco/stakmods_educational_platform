@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assessment Center - Stakmods Educational Platform</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fkatoeduca2528back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-gradient-to-br from-primary-50 via-white to-secondary-50 min-h-screen">
+    <!-- Header Section -->
+    <header class="bg-white shadow-subtle border-b border-border-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-10 w-10 text-primary" viewBox="0 0 40 40" fill="currentColor">
+                            <path d="M20 2L4 8v12c0 11 7.6 21.3 16 24 8.4-2.7 16-13 16-24V8L20 2zm0 6l12 4.5v9.5c0 8.8-6.1 17.1-12 19.4C14.1 39.1 8 30.8 8 22v-9.5L20 8z"/>
+                            <path d="M15 18l3 3 7-7-2-2-5 5-1-1-2 2z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-heading font-bold text-primary">Stakmods Educational Platform</h1>
+                        <p class="text-sm text-secondary-600">Theological Excellence</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="student_dashboard.html" class="nav-link text-body-md">Dashboard</a>
+                    <a href="course_content_viewer.html" class="nav-link text-body-md">Courses</a>
+                    <a href="assessment_center.html" class="nav-link-active text-body-md">Assessments</a>
+                    <a href="live_session_classroom.html" class="nav-link text-body-md">Live Sessions</a>
+                    <a href="progress_analytics.html" class="nav-link text-body-md">Analytics</a>
+                </nav>
+
+                <!-- User Menu -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-secondary-600 hover:text-primary transition-colors duration-fast">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-12h0z"/>
+                        </svg>
+                    </button>
+                    <div class="h-8 w-8 bg-primary-100 rounded-full flex items-center justify-center">
+                        <span class="text-sm font-medium text-primary">JS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Assessment Header -->
+        <div class="mb-8">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h1 class="text-heading-xl text-text-primary font-heading">Assessment Center</h1>
+                    <p class="text-body-md text-text-secondary mt-2">Complete your theological education assessments</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-right">
+                        <p class="text-caption-sm text-text-secondary">Current Assessment</p>
+                        <p class="text-body-md font-medium text-text-primary">Biblical Hermeneutics - Quiz 3</p>
+                    </div>
+                    <button onclick="exitAssessment()" class="btn-secondary">
+                        <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                        Exit
+                    </button>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="bg-white rounded-lg p-6 shadow-subtle border border-border-light">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2">
+                            <svg class="h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-body-md font-medium text-text-primary">Question <span id="currentQuestion">3</span> of <span id="totalQuestions">15</span></span>
+                        </div>
+                        <div class="h-6 w-px bg-border-light"></div>
+                        <div class="flex items-center space-x-2">
+                            <svg class="h-5 w-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-body-md font-medium text-accent" id="timeRemaining">45:32</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-caption-sm text-text-secondary">Progress:</span>
+                        <span class="text-body-md font-medium text-primary" id="progressPercentage">20%</span>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 20%" id="progressBar"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <!-- Question Navigation Sidebar -->
+            <div class="lg:col-span-1">
+                <div class="card p-6 sticky top-8">
+                    <h3 class="text-heading-sm text-text-primary font-heading mb-4">Question Navigator</h3>
+                    <div class="grid grid-cols-5 gap-2 mb-6">
+                        <!-- Question Numbers -->
+                        <button class="h-10 w-10 rounded-md bg-success-100 text-success-600 font-medium text-body-sm flex items-center justify-center" title="Completed">1</button>
+                        <button class="h-10 w-10 rounded-md bg-success-100 text-success-600 font-medium text-body-sm flex items-center justify-center" title="Completed">2</button>
+                        <button class="h-10 w-10 rounded-md bg-primary text-white font-medium text-body-sm flex items-center justify-center" title="Current">3</button>
+                        <button class="h-10 w-10 rounded-md bg-warning-100 text-warning-600 font-medium text-body-sm flex items-center justify-center" title="Flagged">4</button>
+                        <button class="h-10 w-10 rounded-md bg-secondary-100 text-secondary-600 font-medium text-body-sm flex items-center justify-center" title="Not Answered">5</button>
+                        <button class="h-10 w-10 rounded-md bg-secondary-100 text-secondary-600 font-medium text-body-sm flex items-center justify-center" title="Not Answered">6</button>
+                        <button class="h-10 w-10 rounded-md bg-secondary-100 text-secondary-600 font-medium text-body-sm flex items-center justify-center" title="Not Answered">7</button>
+                        <button class="h-10 w-10 rounded-md bg-secondary-100 text-secondary-600 font-medium text-body-sm flex items-center justify-center" title="Not Answered">8</button>
+                        <button class="h-10 w-10 rounded-md bg-secondary-100 text-secondary-600 font-medium text-body-sm flex items-center justify-center" title="Not Answered">9</button>
+                        <button class="h-10 w-10 rounded-md bg-secondary-100 text-secondary-600 font-medium text-body-sm flex items-center justify-center" title="Not Answered">10</button>
+                        <button class="h-10 w-10 rounded-md bg-secondary-100 text-secondary-600 font-medium text-body-sm flex items-center justify-center" title="Not Answered">11</button>
+                        <button class="h-10 w-10 rounded-md bg-secondary-100 text-secondary-600 font-medium text-body-sm flex items-center justify-center" title="Not Answered">12</button>
+                        <button class="h-10 w-10 rounded-md bg-secondary-100 text-secondary-600 font-medium text-body-sm flex items-center justify-center" title="Not Answered">13</button>
+                        <button class="h-10 w-10 rounded-md bg-secondary-100 text-secondary-600 font-medium text-body-sm flex items-center justify-center" title="Not Answered">14</button>
+                        <button class="h-10 w-10 rounded-md bg-secondary-100 text-secondary-600 font-medium text-body-sm flex items-center justify-center" title="Not Answered">15</button>
+                    </div>
+
+                    <!-- Legend -->
+                    <div class="space-y-2 mb-6">
+                        <div class="flex items-center space-x-2">
+                            <div class="h-4 w-4 rounded bg-success-100"></div>
+                            <span class="text-caption-sm text-text-secondary">Completed</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="h-4 w-4 rounded bg-primary"></div>
+                            <span class="text-caption-sm text-text-secondary">Current</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="h-4 w-4 rounded bg-warning-100"></div>
+                            <span class="text-caption-sm text-text-secondary">Flagged</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="h-4 w-4 rounded bg-secondary-100"></div>
+                            <span class="text-caption-sm text-text-secondary">Not Answered</span>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="space-y-3">
+                        <button onclick="flagQuestion()" class="w-full btn-secondary text-left flex items-center">
+                            <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/>
+                            </svg>
+                            Flag Question
+                        </button>
+                        <button onclick="reviewFlagged()" class="w-full btn-secondary text-left flex items-center">
+                            <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                            Review Flagged
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Question Area -->
+            <div class="lg:col-span-3">
+                <div class="card p-8">
+                    <!-- Question Header -->
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="h-10 w-10 bg-primary-100 rounded-full flex items-center justify-center">
+                                <span class="text-body-md font-medium text-primary">3</span>
+                            </div>
+                            <div>
+                                <h2 class="text-heading-md text-text-primary font-heading">Multiple Choice Question</h2>
+                                <p class="text-caption-sm text-text-secondary">Biblical Hermeneutics • 5 points</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="px-3 py-1 bg-accent-100 text-accent-600 rounded-full text-caption-sm font-medium">Medium</span>
+                            <button onclick="toggleBookmark()" class="p-2 text-secondary-400 hover:text-accent transition-colors duration-fast">
+                                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Question Content -->
+                    <div class="mb-8">
+                        <div class="prose max-w-none">
+                            <p class="text-body-lg text-text-primary mb-6">
+                                Which hermeneutical principle emphasizes understanding the historical and cultural context in which a biblical text was written to properly interpret its meaning?
+                            </p>
+                            
+                            <!-- Supporting Image -->
+                            <div class="mb-6">
+                                <img src="https://images.pexels.com/photos/159866/books-book-pages-read-literature-159866.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ancient biblical manuscripts and scrolls" class="w-full h-64 object-cover rounded-lg" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <p class="text-caption-sm text-text-secondary mt-2 text-center">Historical biblical manuscripts demonstrate the importance of contextual interpretation</p>
+                            </div>
+                        </div>
+
+                        <!-- Answer Options -->
+                        <div class="space-y-4" id="answerOptions">
+                            <label class="flex items-start space-x-3 p-4 border border-border-light rounded-lg hover:bg-primary-50 cursor-pointer transition-colors duration-fast">
+                                <input type="radio" name="question3" value="A" class="mt-1 h-4 w-4 text-primary focus:ring-primary-500 border-border-light" />
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="text-body-md font-medium text-text-primary">A.</span>
+                                        <span class="text-body-md text-text-primary">Allegorical Interpretation</span>
+                                    </div>
+                                    <p class="text-body-sm text-text-secondary">Interpreting biblical texts as symbolic representations of spiritual truths</p>
+                                </div>
+                            </label>
+
+                            <label class="flex items-start space-x-3 p-4 border border-border-light rounded-lg hover:bg-primary-50 cursor-pointer transition-colors duration-fast">
+                                <input type="radio" name="question3" value="B" class="mt-1 h-4 w-4 text-primary focus:ring-primary-500 border-border-light" />
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="text-body-md font-medium text-text-primary">B.</span>
+                                        <span class="text-body-md text-text-primary">Historical-Grammatical Method</span>
+                                    </div>
+                                    <p class="text-body-sm text-text-secondary">Understanding texts within their original historical and linguistic context</p>
+                                </div>
+                            </label>
+
+                            <label class="flex items-start space-x-3 p-4 border border-border-light rounded-lg hover:bg-primary-50 cursor-pointer transition-colors duration-fast">
+                                <input type="radio" name="question3" value="C" class="mt-1 h-4 w-4 text-primary focus:ring-primary-500 border-border-light" />
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="text-body-md font-medium text-text-primary">C.</span>
+                                        <span class="text-body-md text-text-primary">Literal Interpretation</span>
+                                    </div>
+                                    <p class="text-body-sm text-text-secondary">Taking biblical texts at face value without considering deeper meanings</p>
+                                </div>
+                            </label>
+
+                            <label class="flex items-start space-x-3 p-4 border border-border-light rounded-lg hover:bg-primary-50 cursor-pointer transition-colors duration-fast">
+                                <input type="radio" name="question3" value="D" class="mt-1 h-4 w-4 text-primary focus:ring-primary-500 border-border-light" />
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="text-body-md font-medium text-text-primary">D.</span>
+                                        <span class="text-body-md text-text-primary">Typological Interpretation</span>
+                                    </div>
+                                    <p class="text-body-sm text-text-secondary">Finding Old Testament prefigurations of New Testament realities</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question Actions -->
+                    <div class="flex items-center justify-between pt-6 border-t border-border-light">
+                        <div class="flex items-center space-x-4">
+                            <button onclick="previousQuestion()" class="btn-secondary flex items-center">
+                                <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                                </svg>
+                                Previous
+                            </button>
+                            <button onclick="clearAnswer()" class="text-secondary-600 hover:text-error-600 text-body-sm font-medium transition-colors duration-fast">
+                                Clear Answer
+                            </button>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="text-right">
+                                <p class="text-caption-sm text-text-secondary">Auto-saved</p>
+                                <p class="text-caption-sm text-success-600">2 minutes ago</p>
+                            </div>
+                            <button onclick="nextQuestion()" class="btn-primary flex items-center">
+                                Next
+                                <svg class="h-5 w-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assessment Controls -->
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Submit Assessment -->
+                    <div class="card p-6">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="h-10 w-10 bg-success-100 rounded-full flex items-center justify-center">
+                                <svg class="h-6 w-6 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-heading-sm text-text-primary font-heading">Submit Assessment</h3>
+                                <p class="text-caption-sm text-text-secondary">Complete and submit your answers</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-body-sm">
+                                <span class="text-text-secondary">Answered:</span>
+                                <span class="text-text-primary font-medium">3 of 15</span>
+                            </div>
+                            <div class="flex justify-between text-body-sm">
+                                <span class="text-text-secondary">Flagged:</span>
+                                <span class="text-warning-600 font-medium">1</span>
+                            </div>
+                            <button onclick="submitAssessment()" class="w-full btn-primary mt-4">
+                                Submit Assessment
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Assessment Info -->
+                    <div class="card p-6">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="h-10 w-10 bg-accent-100 rounded-full flex items-center justify-center">
+                                <svg class="h-6 w-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-heading-sm text-text-primary font-heading">Assessment Info</h3>
+                                <p class="text-caption-sm text-text-secondary">Important details and guidelines</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-body-sm">
+                                <span class="text-text-secondary">Total Points:</span>
+                                <span class="text-text-primary font-medium">75</span>
+                            </div>
+                            <div class="flex justify-between text-body-sm">
+                                <span class="text-text-secondary">Passing Score:</span>
+                                <span class="text-text-primary font-medium">70%</span>
+                            </div>
+                            <div class="flex justify-between text-body-sm">
+                                <span class="text-text-secondary">Attempts:</span>
+                                <span class="text-text-primary font-medium">1 of 2</span>
+                            </div>
+                            <button onclick="showInstructions()" class="w-full btn-secondary mt-4">
+                                View Instructions
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Submit Confirmation Modal -->
+    <div id="submitModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
+        <div class="bg-white rounded-lg max-w-md w-full p-6">
+            <div class="flex items-center space-x-3 mb-4">
+                <div class="h-12 w-12 bg-warning-100 rounded-full flex items-center justify-center">
+                    <svg class="h-6 w-6 text-warning-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-heading-md text-text-primary font-heading">Submit Assessment?</h3>
+                    <p class="text-body-sm text-text-secondary">This action cannot be undone</p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <div class="bg-secondary-50 rounded-lg p-4 space-y-2">
+                    <div class="flex justify-between text-body-sm">
+                        <span class="text-text-secondary">Questions Answered:</span>
+                        <span class="text-text-primary font-medium">3 of 15</span>
+                    </div>
+                    <div class="flex justify-between text-body-sm">
+                        <span class="text-text-secondary">Questions Remaining:</span>
+                        <span class="text-error-600 font-medium">12</span>
+                    </div>
+                    <div class="flex justify-between text-body-sm">
+                        <span class="text-text-secondary">Time Remaining:</span>
+                        <span class="text-accent font-medium">45:32</span>
+                    </div>
+                </div>
+                <p class="text-body-sm text-text-secondary mt-4">
+                    You have unanswered questions. Are you sure you want to submit your assessment now?
+                </p>
+            </div>
+
+            <div class="flex space-x-4">
+                <button onclick="closeSubmitModal()" class="flex-1 btn-secondary">
+                    Continue Assessment
+                </button>
+                <button onclick="confirmSubmit()" class="flex-1 btn-primary">
+                    Submit Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Modal -->
+    <div id="resultsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
+        <div class="bg-white rounded-lg max-w-2xl w-full p-6 max-h-screen overflow-y-auto">
+            <div class="text-center mb-6">
+                <div class="h-16 w-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="h-8 w-8 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-heading-lg text-text-primary font-heading">Assessment Complete!</h3>
+                <p class="text-body-md text-text-secondary">Your results have been automatically saved</p>
+            </div>
+
+            <!-- Score Summary -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div class="text-center p-4 bg-success-50 rounded-lg">
+                    <div class="text-heading-xl text-success-600 font-bold">85%</div>
+                    <div class="text-body-sm text-text-secondary">Overall Score</div>
+                </div>
+                <div class="text-center p-4 bg-primary-50 rounded-lg">
+                    <div class="text-heading-xl text-primary font-bold">13/15</div>
+                    <div class="text-body-sm text-text-secondary">Correct Answers</div>
+                </div>
+                <div class="text-center p-4 bg-accent-50 rounded-lg">
+                    <div class="text-heading-xl text-accent font-bold">32:15</div>
+                    <div class="text-body-sm text-text-secondary">Time Taken</div>
+                </div>
+            </div>
+
+            <!-- Performance Breakdown -->
+            <div class="mb-6">
+                <h4 class="text-heading-sm text-text-primary font-heading mb-4">Topic Performance</h4>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-3 bg-secondary-50 rounded-lg">
+                        <span class="text-body-md text-text-primary">Historical Context</span>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-24 bg-secondary-200 rounded-full h-2">
+                                <div class="bg-success-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                            <span class="text-body-sm font-medium text-success-600">90%</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-secondary-50 rounded-lg">
+                        <span class="text-body-md text-text-primary">Interpretive Methods</span>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-24 bg-secondary-200 rounded-full h-2">
+                                <div class="bg-success-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                            <span class="text-body-sm font-medium text-success-600">80%</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-secondary-50 rounded-lg">
+                        <span class="text-body-md text-text-primary">Application Principles</span>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-24 bg-secondary-200 rounded-full h-2">
+                                <div class="bg-warning-500 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                            <span class="text-body-sm font-medium text-warning-600">75%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex space-x-4">
+                <button onclick="viewDetailedResults()" class="flex-1 btn-secondary">
+                    View Detailed Results
+                </button>
+                <button onclick="returnToCourse()" class="flex-1 btn-primary">
+                    Return to Course
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Pattern -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <svg class="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-secondary-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]" aria-hidden="true">
+            <defs>
+                <pattern id="e813992c-7d03-4cc4-a2bd-151760b470a0" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
+                    <path d="M100 200V.5M.5 .5H200" fill="none"/>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" stroke-width="0" fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)"/>
+        </svg>
+    </div>
+
+    <script>
+        // Assessment state management
+        let currentQuestionIndex = 2; // 0-based index (question 3)
+        let totalQuestions = 15;
+        let timeRemaining = 45 * 60 + 32; // 45:32 in seconds
+        let answers = {};
+        let flaggedQuestions = new Set([3]); // Question 4 is flagged
+
+        // Timer functionality
+        function updateTimer() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            document.getElementById('timeRemaining').textContent = 
+                `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeRemaining <= 300) { // 5 minutes warning
+                document.getElementById('timeRemaining').classList.add('text-error-600');
+                document.getElementById('timeRemaining').classList.remove('text-accent');
+            }
+            
+            if (timeRemaining > 0) {
+                timeRemaining--;
+                setTimeout(updateTimer, 1000);
+            } else {
+                autoSubmitAssessment();
+            }
+        }
+
+        // Start timer
+        updateTimer();
+
+        // Navigation functions
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                saveCurrentAnswer();
+                currentQuestionIndex--;
+                updateQuestionDisplay();
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < totalQuestions - 1) {
+                saveCurrentAnswer();
+                currentQuestionIndex++;
+                updateQuestionDisplay();
+            }
+        }
+
+        function updateQuestionDisplay() {
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            const progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+            document.getElementById('progressPercentage').textContent = Math.round(progress) + '%';
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        // Answer management
+        function saveCurrentAnswer() {
+            const selectedAnswer = document.querySelector('input[name="question3"]:checked');
+            if (selectedAnswer) {
+                answers[currentQuestionIndex] = selectedAnswer.value;
+                // Auto-save indication
+                showAutoSaveStatus();
+            }
+        }
+
+        function showAutoSaveStatus() {
+            // Update auto-save timestamp
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            // This would typically show "just now" or actual timestamp
+        }
+
+        function clearAnswer() {
+            const radioButtons = document.querySelectorAll('input[name="question3"]');
+            radioButtons.forEach(radio => radio.checked = false);
+            delete answers[currentQuestionIndex];
+        }
+
+        // Question flagging
+        function flagQuestion() {
+            if (flaggedQuestions.has(currentQuestionIndex + 1)) {
+                flaggedQuestions.delete(currentQuestionIndex + 1);
+            } else {
+                flaggedQuestions.add(currentQuestionIndex + 1);
+            }
+            updateQuestionNavigator();
+        }
+
+        function reviewFlagged() {
+            const flaggedArray = Array.from(flaggedQuestions);
+            if (flaggedArray.length > 0) {
+                const nextFlagged = flaggedArray.find(q => q > currentQuestionIndex + 1) || flaggedArray[0];
+                currentQuestionIndex = nextFlagged - 1;
+                updateQuestionDisplay();
+            }
+        }
+
+        function updateQuestionNavigator() {
+            // Update the visual state of question navigator buttons
+            // This would update the grid of question numbers with appropriate colors
+        }
+
+        function toggleBookmark() {
+            // Toggle bookmark state for current question
+            const bookmarkBtn = event.target.closest('button');
+            bookmarkBtn.classList.toggle('text-accent');
+            bookmarkBtn.classList.toggle('text-secondary-400');
+        }
+
+        // Assessment submission
+        function submitAssessment() {
+            document.getElementById('submitModal').classList.remove('hidden');
+        }
+
+        function closeSubmitModal() {
+            document.getElementById('submitModal').classList.add('hidden');
+        }
+
+        function confirmSubmit() {
+            closeSubmitModal();
+            // Simulate processing
+            setTimeout(() => {
+                showResults();
+            }, 1500);
+        }
+
+        function autoSubmitAssessment() {
+            // Auto-submit when time runs out
+            confirmSubmit();
+        }
+
+        function showResults() {
+            document.getElementById('resultsModal').classList.remove('hidden');
+        }
+
+        function viewDetailedResults() {
+            // Navigate to detailed results page
+            window.location.href = 'progress_analytics.html';
+        }
+
+        function returnToCourse() {
+            window.location.href = 'course_content_viewer.html';
+        }
+
+        function exitAssessment() {
+            if (confirm('Are you sure you want to exit? Your progress will be saved.')) {
+                window.location.href = 'student_dashboard.html';
+            }
+        }
+
+        function showInstructions() {
+            alert('Assessment Instructions:\n\n1. Answer all questions to the best of your ability\n2. You can flag questions for review\n3. Your progress is automatically saved\n4. You have 2 attempts for this assessment\n5. Minimum passing score is 70%');
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                previousQuestion();
+            } else if (e.key === 'ArrowRight') {
+                nextQuestion();
+            } else if (e.key === 'f' || e.key === 'F') {
+                flagQuestion();
+            }
+        });
+
+        // Auto-save functionality
+        setInterval(() => {
+            saveCurrentAnswer();
+        }, 30000); // Auto-save every 30 seconds
+
+        // Prevent accidental page refresh
+        window.addEventListener('beforeunload', function(e) {
+            e.preventDefault();
+            e.returnValue = 'You have an assessment in progress. Are you sure you want to leave?';
+        });
+
+        // Initialize assessment
+        document.addEventListener('DOMContentLoaded', function() {
+            updateQuestionDisplay();
+            updateQuestionNavigator();
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

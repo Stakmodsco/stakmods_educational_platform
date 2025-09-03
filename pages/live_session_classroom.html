@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Session Classroom - Stakmods Educational Platform</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fkatoeduca2528back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-secondary-50 min-h-screen">
+    <!-- Header Section -->
+    <header class="bg-white shadow-subtle border-b border-border-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-10 w-10 text-primary" viewBox="0 0 40 40" fill="currentColor">
+                            <path d="M20 2L4 8v12c0 11 7.6 21.3 16 24 8.4-2.7 16-13 16-24V8L20 2zm0 6l12 4.5v9.5c0 8.8-6.1 17.1-12 19.4C14.1 39.1 8 30.8 8 22v-9.5L20 8z"/>
+                            <path d="M15 18l3 3 7-7-2-2-5 5-1-1-2 2z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-heading font-bold text-primary">Stakmods Educational Platform</h1>
+                        <p class="text-sm text-secondary-600">Theological Excellence</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="student_dashboard.html" class="nav-link text-body-md">Dashboard</a>
+                    <a href="course_content_viewer.html" class="nav-link text-body-md">Courses</a>
+                    <a href="assessment_center.html" class="nav-link text-body-md">Assessments</a>
+                    <a href="live_session_classroom.html" class="nav-link-active text-body-md">Live Sessions</a>
+                    <a href="progress_analytics.html" class="nav-link text-body-md">Analytics</a>
+                </nav>
+
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button class="p-2 text-secondary-600 hover:text-primary transition-colors duration-fast">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-6h5v6z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop&ixlib=rb-4.0.3" alt="User Avatar" class="h-8 w-8 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <span class="text-body-sm font-medium text-text-primary">John Smith</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 h-screen overflow-hidden">
+        <!-- Session Header -->
+        <div class="bg-white border-b border-border-light px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="h-3 w-3 bg-error-500 rounded-full animate-pulse"></div>
+                        <span class="text-body-md font-medium text-text-primary">LIVE</span>
+                    </div>
+                    <div class="h-6 w-px bg-border-light"></div>
+                    <div>
+                        <h2 class="text-heading-md text-text-primary">Systematic Theology - Session 12</h2>
+                        <p class="text-body-sm text-text-secondary">The Doctrine of Salvation</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <!-- Session Timer -->
+                    <div class="flex items-center space-x-2 text-body-sm text-text-secondary">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span id="sessionTimer">1:23:45</span>
+                    </div>
+                    
+                    <!-- Participants Count -->
+                    <div class="flex items-center space-x-2 text-body-sm text-text-secondary">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                        <span>24 participants</span>
+                    </div>
+
+                    <!-- Session Controls -->
+                    <div class="flex items-center space-x-2">
+                        <button class="p-2 text-secondary-600 hover:text-primary transition-colors duration-fast" title="Settings">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </button>
+                        <button class="btn-accent px-4 py-2" id="recordBtn">
+                            <svg class="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10"/>
+                            </svg>
+                            Recording
+                        </button>
+                        <button class="btn-secondary px-4 py-2" onclick="endSession()">End Session</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Classroom Layout -->
+        <div class="flex h-full">
+            <!-- Main Video Area -->
+            <div class="flex-1 flex flex-col bg-secondary-900">
+                <!-- Primary Video Feed -->
+                <div class="flex-1 relative bg-secondary-800">
+                    <!-- Instructor Video -->
+                    <div class="absolute inset-0">
+                        <img src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instructor Video Feed" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        
+                        <!-- Video Overlay Controls -->
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-medium">
+                            <!-- Screen Share Indicator -->
+                            <div class="absolute top-4 left-4 bg-primary bg-opacity-90 text-white px-3 py-1 rounded-md text-caption-sm">
+                                <svg class="h-4 w-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                Dr. Sarah Johnson is sharing screen
+                            </div>
+
+                            <!-- Instructor Name -->
+                            <div class="absolute bottom-4 left-4 bg-black bg-opacity-60 text-white px-3 py-2 rounded-md">
+                                <div class="flex items-center space-x-2">
+                                    <div class="h-2 w-2 bg-success-500 rounded-full"></div>
+                                    <span class="text-body-sm font-medium">Dr. Sarah Johnson</span>
+                                    <span class="text-caption-sm text-secondary-300">(Host)</span>
+                                </div>
+                            </div>
+
+                            <!-- Video Quality Indicator -->
+                            <div class="absolute bottom-4 right-4 flex items-center space-x-2">
+                                <div class="bg-black bg-opacity-60 text-white px-2 py-1 rounded text-caption-sm">HD</div>
+                                <div class="bg-black bg-opacity-60 text-white p-1 rounded">
+                                    <svg class="h-4 w-4 text-success-500" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Controls Bar -->
+                <div class="bg-secondary-800 px-6 py-4">
+                    <div class="flex items-center justify-center space-x-4">
+                        <!-- Mute/Unmute -->
+                        <button class="p-3 bg-secondary-700 hover:bg-secondary-600 text-white rounded-full transition-colors duration-fast" id="muteBtn">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                            </svg>
+                        </button>
+
+                        <!-- Video On/Off -->
+                        <button class="p-3 bg-secondary-700 hover:bg-secondary-600 text-white rounded-full transition-colors duration-fast" id="videoBtn">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                        </button>
+
+                        <!-- Screen Share -->
+                        <button class="p-3 bg-primary hover:bg-primary-700 text-white rounded-full transition-colors duration-fast" id="shareBtn">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </button>
+
+                        <!-- Raise Hand -->
+                        <button class="p-3 bg-secondary-700 hover:bg-accent text-white rounded-full transition-colors duration-fast" id="handBtn">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"/>
+                            </svg>
+                        </button>
+
+                        <!-- More Options -->
+                        <button class="p-3 bg-secondary-700 hover:bg-secondary-600 text-white rounded-full transition-colors duration-fast">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="w-80 bg-white border-l border-border-light flex flex-col">
+                <!-- Sidebar Tabs -->
+                <div class="border-b border-border-light">
+                    <nav class="flex">
+                        <button class="flex-1 px-4 py-3 text-body-sm font-medium text-primary border-b-2 border-primary bg-primary-50" id="participantsTab">
+                            Participants (24)
+                        </button>
+                        <button class="flex-1 px-4 py-3 text-body-sm font-medium text-text-secondary hover:text-primary transition-colors duration-fast" id="chatTab">
+                            Chat (12)
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Participants Panel -->
+                <div class="flex-1 overflow-y-auto" id="participantsPanel">
+                    <!-- Raised Hands Section -->
+                    <div class="p-4 border-b border-border-light bg-accent-50">
+                        <h3 class="text-body-sm font-medium text-text-primary mb-3 flex items-center">
+                            <svg class="h-4 w-4 mr-2 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"/>
+                            </svg>
+                            Raised Hands (3)
+                        </h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between p-2 bg-white rounded-md">
+                                <div class="flex items-center space-x-2">
+                                    <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=1" alt="Student" class="h-6 w-6 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <span class="text-caption-md">Michael Chen</span>
+                                </div>
+                                <span class="text-caption-sm text-text-secondary">2:34</span>
+                            </div>
+                            <div class="flex items-center justify-between p-2 bg-white rounded-md">
+                                <div class="flex items-center space-x-2">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=150&h=150&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Student" class="h-6 w-6 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <span class="text-caption-md">Emma Rodriguez</span>
+                                </div>
+                                <span class="text-caption-sm text-text-secondary">1:12</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- All Participants -->
+                    <div class="p-4">
+                        <h3 class="text-body-sm font-medium text-text-primary mb-3">All Participants</h3>
+                        <div class="space-y-2">
+                            <!-- Host -->
+                            <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md transition-colors duration-fast">
+                                <div class="flex items-center space-x-3">
+                                    <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=1" alt="Instructor" class="h-8 w-8 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <div>
+                                        <div class="flex items-center space-x-2">
+                                            <span class="text-caption-md font-medium">Dr. Sarah Johnson</span>
+                                            <span class="text-caption-sm text-accent bg-accent-100 px-2 py-0.5 rounded">Host</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-1">
+                                    <svg class="h-4 w-4 text-success-500" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                                    </svg>
+                                    <svg class="h-4 w-4 text-success-500" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Students -->
+                            <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md transition-colors duration-fast">
+                                <div class="flex items-center space-x-3">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Student" class="h-8 w-8 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <span class="text-caption-md">John Smith (You)</span>
+                                </div>
+                                <div class="flex items-center space-x-1">
+                                    <svg class="h-4 w-4 text-success-500" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                                    </svg>
+                                    <svg class="h-4 w-4 text-success-500" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md transition-colors duration-fast">
+                                <div class="flex items-center space-x-3">
+                                    <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=1" alt="Student" class="h-8 w-8 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <span class="text-caption-md">Michael Chen</span>
+                                </div>
+                                <div class="flex items-center space-x-1">
+                                    <svg class="h-4 w-4 text-error-500" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                                    </svg>
+                                    <svg class="h-4 w-4 text-success-500" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                    </svg>
+                                    <svg class="h-4 w-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md transition-colors duration-fast">
+                                <div class="flex items-center space-x-3">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=150&h=150&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Student" class="h-8 w-8 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <span class="text-caption-md">Emma Rodriguez</span>
+                                </div>
+                                <div class="flex items-center space-x-1">
+                                    <svg class="h-4 w-4 text-success-500" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                                    </svg>
+                                    <svg class="h-4 w-4 text-error-500" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                    </svg>
+                                    <svg class="h-4 w-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Panel (Hidden by default) -->
+                <div class="flex-1 overflow-y-auto hidden" id="chatPanel">
+                    <div class="p-4 space-y-4">
+                        <!-- Chat Messages -->
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-2">
+                                <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=1" alt="Student" class="h-6 w-6 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="text-caption-md font-medium">Michael Chen</span>
+                                        <span class="text-caption-sm text-text-secondary">2:34 PM</span>
+                                    </div>
+                                    <p class="text-caption-md text-text-primary">Could you please explain the difference between justification and sanctification again?</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-2">
+                                <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=1" alt="Instructor" class="h-6 w-6 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="text-caption-md font-medium">Dr. Sarah Johnson</span>
+                                        <span class="text-caption-sm text-accent bg-accent-100 px-1 rounded">Host</span>
+                                        <span class="text-caption-sm text-text-secondary">2:35 PM</span>
+                                    </div>
+                                    <p class="text-caption-md text-text-primary">Great question, Michael! I'll address that in the next slide. Justification is a one-time declaration, while sanctification is an ongoing process.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-2">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=150&h=150&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Student" class="h-6 w-6 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="text-caption-md font-medium">Emma Rodriguez</span>
+                                        <span class="text-caption-sm text-text-secondary">2:36 PM</span>
+                                    </div>
+                                    <p class="text-caption-md text-text-primary">Thank you! That helps clarify it.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Input -->
+                    <div class="border-t border-border-light p-4">
+                        <div class="flex space-x-2">
+                            <input type="text" placeholder="Type a message..." class="flex-1 form-input text-caption-md" id="chatInput" />
+                            <button class="btn-primary px-3 py-2">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Action Buttons -->
+        <div class="fixed bottom-6 left-6 space-y-3">
+            <!-- Breakout Rooms -->
+            <button class="p-3 bg-accent text-white rounded-full shadow-elevated hover:bg-accent-700 transition-all duration-medium" title="Breakout Rooms">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+            </button>
+
+            <!-- Polling -->
+            <button class="p-3 bg-primary text-white rounded-full shadow-elevated hover:bg-primary-700 transition-all duration-medium" title="Create Poll">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+            </button>
+
+            <!-- Whiteboard -->
+            <button class="p-3 bg-secondary-700 text-white rounded-full shadow-elevated hover:bg-secondary-600 transition-all duration-medium" title="Whiteboard">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Connection Status -->
+        <div class="fixed top-20 right-6 bg-success-50 border border-success-200 text-success-700 px-4 py-2 rounded-md shadow-medium">
+            <div class="flex items-center space-x-2">
+                <div class="h-2 w-2 bg-success-500 rounded-full animate-pulse"></div>
+                <span class="text-caption-sm font-medium">Connected - Excellent Quality</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Session Timer
+        let sessionStartTime = Date.now() - (1 * 60 * 60 * 1000 + 23 * 60 * 1000 + 45 * 1000); // 1:23:45 ago
+        
+        function updateTimer() {
+            const elapsed = Date.now() - sessionStartTime;
+            const hours = Math.floor(elapsed / (1000 * 60 * 60));
+            const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
+            
+            document.getElementById('sessionTimer').textContent = 
+                `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        setInterval(updateTimer, 1000);
+
+        // Tab Switching
+        document.getElementById('participantsTab').addEventListener('click', function() {
+            // Switch to participants tab
+            this.classList.add('text-primary', 'border-b-2', 'border-primary', 'bg-primary-50');
+            this.classList.remove('text-text-secondary');
+            
+            document.getElementById('chatTab').classList.remove('text-primary', 'border-b-2', 'border-primary', 'bg-primary-50');
+            document.getElementById('chatTab').classList.add('text-text-secondary');
+            
+            document.getElementById('participantsPanel').classList.remove('hidden');
+            document.getElementById('chatPanel').classList.add('hidden');
+        });
+
+        document.getElementById('chatTab').addEventListener('click', function() {
+            // Switch to chat tab
+            this.classList.add('text-primary', 'border-b-2', 'border-primary', 'bg-primary-50');
+            this.classList.remove('text-text-secondary');
+            
+            document.getElementById('participantsTab').classList.remove('text-primary', 'border-b-2', 'border-primary', 'bg-primary-50');
+            document.getElementById('participantsTab').classList.add('text-text-secondary');
+            
+            document.getElementById('chatPanel').classList.remove('hidden');
+            document.getElementById('participantsPanel').classList.add('hidden');
+        });
+
+        // Video Controls
+        let isMuted = false;
+        let isVideoOn = true;
+        let isScreenSharing = true;
+        let isHandRaised = false;
+        let isRecording = true;
+
+        document.getElementById('muteBtn').addEventListener('click', function() {
+            isMuted = !isMuted;
+            if (isMuted) {
+                this.classList.add('bg-error-600');
+                this.classList.remove('bg-secondary-700');
+                this.innerHTML = `
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-3a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clip-rule="evenodd"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/>
+                    </svg>
+                `;
+            } else {
+                this.classList.remove('bg-error-600');
+                this.classList.add('bg-secondary-700');
+                this.innerHTML = `
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                    </svg>
+                `;
+            }
+        });
+
+        document.getElementById('videoBtn').addEventListener('click', function() {
+            isVideoOn = !isVideoOn;
+            if (!isVideoOn) {
+                this.classList.add('bg-error-600');
+                this.classList.remove('bg-secondary-700');
+                this.innerHTML = `
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L18.364 5.636M5.636 18.364l12.728-12.728"/>
+                    </svg>
+                `;
+            } else {
+                this.classList.remove('bg-error-600');
+                this.classList.add('bg-secondary-700');
+                this.innerHTML = `
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                    </svg>
+                `;
+            }
+        });
+
+        document.getElementById('shareBtn').addEventListener('click', function() {
+            isScreenSharing = !isScreenSharing;
+            if (isScreenSharing) {
+                this.classList.add('bg-primary');
+                this.classList.remove('bg-secondary-700');
+            } else {
+                this.classList.remove('bg-primary');
+                this.classList.add('bg-secondary-700');
+            }
+        });
+
+        document.getElementById('handBtn').addEventListener('click', function() {
+            isHandRaised = !isHandRaised;
+            if (isHandRaised) {
+                this.classList.add('bg-accent');
+                this.classList.remove('bg-secondary-700');
+            } else {
+                this.classList.remove('bg-accent');
+                this.classList.add('bg-secondary-700');
+            }
+        });
+
+        document.getElementById('recordBtn').addEventListener('click', function() {
+            isRecording = !isRecording;
+            if (isRecording) {
+                this.classList.add('btn-accent');
+                this.classList.remove('btn-secondary');
+                this.innerHTML = `
+                    <svg class="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                    </svg>
+                    Recording
+                `;
+            } else {
+                this.classList.remove('btn-accent');
+                this.classList.add('btn-secondary');
+                this.innerHTML = `
+                    <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/>
+                    </svg>
+                    Start Recording
+                `;
+            }
+        });
+
+        // Chat Input
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const message = this.value.trim();
+                if (message) {
+                    // Add message to chat (mock implementation)
+                    console.log('Sending message:', message);
+                    this.value = '';
+                }
+            }
+        });
+
+        // End Session
+        function endSession() {
+            if (confirm('Are you sure you want to end this session? This action cannot be undone.')) {
+                // Mock session end
+                alert('Session ended. Redirecting to dashboard...');
+                window.location.href = 'student_dashboard.html';
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTimer();
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
