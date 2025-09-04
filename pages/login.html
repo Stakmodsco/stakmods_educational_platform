@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - Stakmods Educational Platform</title>
+    <title>Login - Theos Educational Platform</title>
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,7 +23,7 @@
                         </svg>
                     </div>
                     <div class="ml-3">
-                        <h1 class="text-xl font-heading font-bold text-primary">Stakmods Educational Platform</h1>
+                        <h1 class="text-xl font-heading font-bold text-primary">Theos Educational Platform</h1>
                         <p class="text-sm text-secondary-600">Theological Excellence</p>
                     </div>
                 </div>
@@ -152,9 +152,9 @@
                 <div class="mt-8 p-4 bg-secondary-50 rounded-lg border border-secondary-200">
                     <h3 class="text-body-sm font-medium text-text-primary mb-2">Demo Credentials:</h3>
                     <div class="space-y-1 text-caption-sm text-text-secondary">
-                        <p><strong>Student:</strong> student@stakmods.edu / student123</p>
-                        <p><strong>Instructor:</strong> instructor@stakmods.edu / instructor123</p>
-                        <p><strong>Admin:</strong> admin@stakmods.edu / admin123</p>
+                        <p><strong>Student:</strong> student@theos.edu / student123</p>
+                        <p><strong>Instructor:</strong> instructor@theos.edu / instructor123</p>
+                        <p><strong>Admin:</strong> admin@theos.edu / admin123</p>
                     </div>
                 </div>
             </div>
@@ -185,7 +185,7 @@
 
                 <!-- Copyright -->
                 <p class="text-caption-sm text-text-secondary">
-                    © 2025 Stakmods Theological Institute. All Rights Reserved.
+                    © 2025 Theos Theological Institute. All Rights Reserved.
                 </p>
             </div>
         </div>
@@ -246,9 +246,9 @@
         setTimeout(() => {
             // Mock authentication logic
             const validCredentials = {
-                'student@stakmods.edu': { password: 'student123', type: 'student', redirect: 'student_dashboard.html' },
-                'instructor@stakmods.edu': { password: 'instructor123', type: 'instructor', redirect: 'student_dashboard.html' },
-                'admin@stakmods.edu': { password: 'admin123', type: 'administrator', redirect: 'student_dashboard.html' }
+                'student@theos.edu': { password: 'student123', type: 'student', redirect: 'student_dashboard.html' },
+                'instructor@theos.edu': { password: 'instructor123', type: 'instructor', redirect: 'student_dashboard.html' },
+                'admin@theos.edu': { password: 'admin123', type: 'administrator', redirect: 'student_dashboard.html' }
             };
 
             const user = validCredentials[email];
@@ -286,13 +286,13 @@
         userTypeSelect.addEventListener('change', function() {
             const selectedType = this.value;
             if (selectedType === 'student') {
-                emailInput.value = 'student@stakmods.edu';
+                emailInput.value = 'student@theos.edu';
                 passwordInput.value = 'student123';
             } else if (selectedType === 'instructor') {
-                emailInput.value = 'instructor@stakmods.edu';
+                emailInput.value = 'instructor@theos.edu';
                 passwordInput.value = 'instructor123';
             } else if (selectedType === 'administrator') {
-                emailInput.value = 'admin@stakmods.edu';
+                emailInput.value = 'admin@theos.edu';
                 passwordInput.value = 'admin123';
             } else {
                 emailInput.value = '';
