@@ -2477,7 +2477,7 @@ body[data-page="login"] {
 body[data-page="student_dashboard"] {
   background:
     linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
-    url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1600&q=80')
+    url('https://images.stockcake.com/public/3/e/5/3e56ddd1-76fc-41fc-94ff-fb96100006d4_large/educational-technology-setup-stockcake.jpg')
     no-repeat center center/cover !important;
   min-height: 100vh;
   background-attachment: fixed !important;
@@ -2486,7 +2486,7 @@ body[data-page="student_dashboard"] {
 body[data-page="assessment_center"] {
   background:
     linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-    url('https://images.unsplash.com/photo-1584697964237-b80da5e1a2eb?auto=format&fit=crop&w=1600&q=80')
+    url('https://images.stockcake.com/public/3/7/3/373053e6-b459-4641-80af-07eb4ad64395_large/digital-learning-magic-stockcake.jpg')
     no-repeat center center/cover !important;
   min-height: 100vh;
   background-attachment: fixed !important;
