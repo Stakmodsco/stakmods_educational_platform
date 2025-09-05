@@ -2453,3 +2453,68 @@ h1, h2, h3, h4, h5, h6{
     padding-right: 2rem;
   }
 }
+
+/* === Page-specific backgrounds (paste at end of css/main.css) === */
+
+body[data-page="index"] {
+  background: 
+    linear-gradient(rgba(102,126,234,0.8), rgba(118,75,162,0.8)),
+    url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80')
+    no-repeat center center/cover !important;
+  min-height: 100vh;
+  background-attachment: fixed !important;
+}
+
+body[data-page="login"] {
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1584697964154-1b7d688698e5?auto=format&fit=crop&w=1600&q=80')
+    no-repeat center center/cover !important;
+  min-height: 100vh;
+  background-attachment: fixed !important;
+}
+
+body[data-page="student_dashboard"] {
+  background:
+    linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
+    url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1600&q=80')
+    no-repeat center center/cover !important;
+  min-height: 100vh;
+  background-attachment: fixed !important;
+}
+
+body[data-page="assessment_center"] {
+  background:
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url('https://images.unsplash.com/photo-1584697964237-b80da5e1a2eb?auto=format&fit=crop&w=1600&q=80')
+    no-repeat center center/cover !important;
+  min-height: 100vh;
+  background-attachment: fixed !important;
+}
+
+body[data-page="course_content_viewer"] {
+  background:
+    linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
+    url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1600&q=80')
+    no-repeat center center/cover !important;
+  min-height: 100vh;
+  background-attachment: fixed !important;
+}
+
+body[data-page="live_session_classroom"] {
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1603570417039-60b5b45b6f5c?auto=format&fit=crop&w=1600&q=80')
+    no-repeat center center/cover !important;
+  min-height: 100vh;
+  background-attachment: fixed !important;
+}
+
+body[data-page="progress_analytics"] {
+  background:
+    linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
+    url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80')
+    no-repeat center center/cover !important;
+  min-height: 100vh;
+  background-attachment: fixed !important;
+}
