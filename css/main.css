@@ -2459,7 +2459,7 @@ h1, h2, h3, h4, h5, h6{
 body[data-page="index"] {
   background: 
     linear-gradient(rgba(102,126,234,0.8), rgba(118,75,162,0.8)),
-    url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80')
+    url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1600&q=80')
     no-repeat center center/cover !important;
   min-height: 100vh;
   background-attachment: fixed !important;
