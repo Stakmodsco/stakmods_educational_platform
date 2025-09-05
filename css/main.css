@@ -2468,7 +2468,7 @@ body[data-page="index"] {
 body[data-page="login"] {
   background:
     linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url('https://images.unsplash.com/photo-1584697964154-1b7d688698e5?auto=format&fit=crop&w=1600&q=80')
+    url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80')
     no-repeat center center/cover !important;
   min-height: 100vh;
   background-attachment: fixed !important;
