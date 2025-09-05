@@ -2518,3 +2518,24 @@ body[data-page="progress_analytics"] {
   min-height: 100vh;
   background-attachment: fixed !important;
 }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  background: url('YOUR_IMAGE_URL') no-repeat center center fixed;
+  background-size: cover;
+
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 0;
+}
