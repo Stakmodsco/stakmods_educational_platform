@@ -567,5 +567,18 @@
         });
     </script>
 <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+    
+    <script>
+  (function(){
+    try {
+      // derive page name from filename, fall back to "index"
+      var p = location.pathname.split("/").pop().replace(".html","") || "index";
+      if (!p) p = "index";
+      document.body.setAttribute("data-page", p);
+    } catch(e) {
+      // fail silently
+    }
+  })();
+</script>
 </body>
 </html>
